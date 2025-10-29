@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online To Do List</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <h1>Online To Do List</h1>
+    <form class="task-form">
+        <div class="task-input-container">
+            <input type="text" name="task" id="js-task-input" placeholder="Enter a new task">
+            <p id="js-task-name-checker" class="task-name-checker"></p>
+        </div>
+
+        <div class="datetime-container">
+            <!-- Visible input field (shows custom format) -->
+            <input type="text" name="datetime" id="js-datetime" placeholder="DD-MM-YYYY HH:MM AM/PM">
+            <img src="images/calendar-icon.png" alt="Calendar" class="calendar-icon" id="js-calendar-icon">
+            
+            <p id="js-task-datetime-checker" class="task-datetime-checker"></p>
+            <!-- Hidden native datetime-local input -->
+            <input type="datetime-local" name="datetime-picker" id="js-nativeDatetime">
+        </div>
+        
+        <button id="js-add-task-button">Add Task</button>
+    </form>
+    <div class="button-option visible">
+        <img src="images/check-icon.png" alt="Completed" class="js-completed Completed icon-button">
+        <img src="images/delete-icon.png" alt="Delete" class="js-delete Delete icon-button">
+        <img src="images/edit-icon.png" alt="Edit" class="js-edit Edit icon-button">
+        <img src="images/desc-icon.png" alt="Description" class="js-description Description icon-button">
+    </div>
+    <table id="js-task-table" class="task-table">
+        <!-- Tasks will be dynamically added here -->
+    </table>
+    <p id="js-message-box" class="message-box"></p>
+    
+    <script src="scripts/main.js" type="module"></script>
+
+</body>
+
+</html>
