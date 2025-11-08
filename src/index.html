@@ -5,42 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online To Do List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-    <h1>Online To Do List</h1>
-    <form class="task-form">
-        <div class="task-input-container">
-            <input type="text" name="task" id="js-task-input" placeholder="Enter a new task">
-            <p id="js-task-name-checker" class="task-name-checker"></p>
-        </div>
+    <section class="input-section container">
+        <h1>Online To Do List</h1>
+        <form class="task-form">
+            <div class="task-input-container">
+                <input type="text" name="task" id="js-task-input" placeholder="Enter a new task">
+                <p id="js-task-name-checker" class="task-name-checker">task-name-checker</p>
+            </div>
 
-        <div class="datetime-container">
-            <!-- Visible input field (shows custom format) -->
-            <input type="text" name="datetime" id="js-datetime" placeholder="DD-MM-YYYY HH:MM AM/PM">
-            <img src="images/calendar-icon.png" alt="Calendar" class="calendar-icon" id="js-calendar-icon">
-            
-            <p id="js-task-datetime-checker" class="task-datetime-checker"></p>
-            <!-- Hidden native datetime-local input -->
-            <input type="datetime-local" name="datetime-picker" id="js-nativeDatetime">
+            <div class="datetime-container">
+                <!-- Visible input field (shows custom format) -->
+                <input type="text" name="datetime" id="js-datetime" placeholder="DD-MM-YYYY HH:MM AM/PM">
+                <img src="images/calendar-icon.png" alt="Calendar" class="calendar-icon" id="js-calendar-icon">
+
+                <p id="js-task-datetime-checker" class="task-datetime-checker">task-datetime-checker</p>
+                <!-- Hidden native datetime-local input -->
+                <input type="datetime-local" name="datetime-picker" id="js-nativeDatetime">
+            </div>
+
+            <button class="add-task-button" id="js-add-task-button">Add Task</button>
+        </form>
+    </section>
+    <section class="task-section container">
+        <h2>Your Tasks</h2>
+        <section class="filter-section">
+            <div class="filter-by-status">
+                <label for="js-filter-tasks">Filter Tasks:</label>
+                <select id="js-filter-tasks">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="sort-by-chracteristic">
+                <label for="js-sort-tasks">Sort By:</label>
+                <select id="js-sort-tasks">
+                    <option value="name">Name</option>
+                    <option value="name-desc">Name - Desc</option>
+                    <option value="remaining-time">Remaining Time</option>
+                    <option value="remaining-time-desc">Remaining Time - Desc</option>
+                    <option value="date-modification">Date of Modification</option>
+                    <option value="date-modification-desc">Date of Modification - Desc</option>
+                    <option value="created-at">Created At</option>
+                    <option value="created-at-desc">Created At - Desc</option>
+                </select>
+            </div>
+        </section>
+        <div class="button-options visible">
+            <button class="icon-button">
+                <img src="images/check-icon.png" alt="Completed" class="js-completed completed">
+                <span class="tooltip-text">Mark as Completed</span>
+            </button>
+            <button class="icon-button">
+                <img src="images/delete-icon.png" alt="Delete" class="js-delete delete">
+                <span class="tooltip-text">Delete Task</span>
+            </button>
+            <button class="icon-button">
+                <img src="images/edit-icon.png" alt="Edit" class="js-edit edit">
+                <span class="tooltip-text">Edit Task Details</span>
+            </button>
+            <button class="icon-button">
+                <img src="images/desc-icon.png" alt="Description" class="js-description description">
+                <span class="tooltip-text">View/Add Description</span>
+            </button>
         </div>
-        
-        <button id="js-add-task-button">Add Task</button>
-    </form>
-    <div class="button-option visible">
-        <img src="images/check-icon.png" alt="Completed" class="js-completed Completed icon-button">
-        <img src="images/delete-icon.png" alt="Delete" class="js-delete Delete icon-button">
-        <img src="images/edit-icon.png" alt="Edit" class="js-edit Edit icon-button">
-        <img src="images/desc-icon.png" alt="Description" class="js-description Description icon-button">
-    </div>
-    <table id="js-task-table" class="task-table">
-        <!-- Tasks will be dynamically added here -->
-    </table>
-    <p id="js-message-box" class="message-box"></p>
-    
+        <table id="js-task-table" class="task-table">
+            <tr>
+                <th rowspan="2" colspan="2">Task</th>
+                <th>Time Left</th>
+                <th rowspan="2">Scheduled To</th>
+                <th class="hided">Created At</th>
+                <th class="hided">Date of Modification</th>
+            </tr>
+            <tr>
+                <th>D:HH:MM:SS</th>
+            </tr>
+            <!-- Tasks will be dynamically added here -->
+            <tr>
+                <td>1.</td>
+                <td>Play Game<span id="js-status" class="status-completed">.</span></td>
+                <td>0:02:42:04</td>
+                <td>22/09/2025
+                01:00 PM</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Do HomeWork<span id="js-status" class="status-pending">.</span></td>
+                <td>0:05:42:04</td>
+                <td>22/09/2025
+                03:00 PM</td>
+            </tr>
+        </table>
+        <p id="js-message-box" class="message-box"></p>
+    </section>
+
     <script src="scripts/main.js" type="module"></script>
-
 </body>
 
 </html>

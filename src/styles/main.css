@@ -1,0 +1,228 @@
+body{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 30px 0 0 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+h2, h3, h4{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+section.container{
+    width: calc(50% - 20px);
+    margin: 0 auto;
+}
+
+section.input-section{
+    background-color: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+form.task-form{
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-section div{
+    position: relative;
+}
+
+input[name="task"]{
+    width: 280px;
+    padding: 10px;
+    margin: 20px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input[name="datetime"]{
+    width: 240px;
+    padding: 10px;
+    margin: 20px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+button.add-task-button{
+    background-color: #4CAF50;
+    color: white;
+    max-height: 45px;
+    padding: 10px 20px;
+    margin: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+img.calendar-icon{
+    position: absolute;
+    right: 18px;
+    top: 28px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+input[name="datetime-picker"]{
+    position: absolute;
+    left: 10px;
+    top:36px;
+    width: 0px;
+    height: 0px;
+    border: none;
+}
+
+.task-name-checker, .task-datetime-checker{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: red;
+    top:60px;
+    left:15px;
+}
+
+section.filter-section{
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-options{
+    display: grid;
+    width: 25%;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    margin-left: 65%;
+}
+
+.button-options img{
+    width: 32px;
+    height: 32px;
+}
+
+.icon-button{
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    position: relative;
+    /* no wobble */
+    transition: transform .15s ease, border-color .15s ease;
+    will-change: transform;
+    transform-origin: center center;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.tooltip-text{
+    display: none;
+    position: absolute;
+}
+
+
+.icon-button:hover{
+    transform: scale(1.1);
+    border-color: #779;
+    border-radius: 8px;
+}
+
+.icon-button:hover .tooltip-text{
+    display: block;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #779;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+table.task-table{
+    min-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+tr:nth-child(1) > th:nth-child(1) {
+    text-align: start;
+    padding-left: 15px;
+}
+
+tr > td:nth-child(1){
+    width:10px;
+}
+
+td,th{
+    text-align: start;
+}
+
+.hided{
+    display: none;
+}
+
+.status-completed{
+    position: relative;
+    color: hsl(210, 98%, 52%);
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 0;
+    top: -1px;
+    left: 5px;
+}
+
+.status-pending{
+    position: relative;
+    color: #f8ac31;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 0;
+    top: -1px;
+    left: 5px;
+    will-change: opacity;
+    transition: opacity 1s linear;
+    opacity: 1;
+}
+
+.status-pending.dim {
+    opacity: 0;
+}
+
+.message-box{
+    text-align: center;
+    font-size: 20px;
+    color: #555;
+    margin-top: 20px;
+}
